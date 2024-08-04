@@ -1,46 +1,53 @@
-import React, { useContext } from "react";
-import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
-
+import React, { useState, useRef } from "react";
+import BodyPartCard from "./BodyPartCard";
 import RightArrowIcon from "../assets/icons/right-arrow.png";
 import LeftArrowIcon from "../assets/icons/left-arrow.png";
-import BodyPartCard from "./BodyPartCard";
-
-const LeftArrow = () => {
-  const { scrollPrev } = useContext(VisibilityContext);
-
-  return (
-    <div onClick={() => scrollPrev()} className="right-arrow">
-      <img src={LeftArrowIcon} alt="right-arrow" />
-    </div>
-  );
-};
-
-const RightArrow = () => {
-  const { scrollNext } = useContext(VisibilityContext);
-
-  return (
-    <div onClick={() => scrollNext()} className="left-arrow">
-      <img src={RightArrowIcon} alt="right-arrow" />
-    </div>
-  );
-};
 
 const HorizontalScrollbar = ({ bodyPart, setBodyPart, bodyParts }) => {
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const scrollContainerRef = useRef(null);
+
+  const scroll = (direction) => {
+    const container = scrollContainerRef.current;
+    if (container) {
+      const scrollAmount = direction === 'left' ? -300 : 300;
+      container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      setScrollPosition(container.scrollLeft + scrollAmount);
+    }
+  };
+
   return (
-    <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
-      {bodyParts.map((item) => (
-        <div key={item.id || item} className="">
-          {bodyParts && (
+    <div className="relative w-full">
+      <button 
+        className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow-md"
+        onClick={() => scroll('left')}
+        disabled={scrollPosition <= 0}
+      >
+        <img src={LeftArrowIcon} alt="left-arrow" className="w-6 h-6" />
+      </button>
+      <div 
+        ref={scrollContainerRef}
+        className="flex overflow-x-hidden scroll-smooth"
+        style={{ scrollBehavior: 'smooth' }}
+      >
+        {bodyParts.map((item) => (
+          <div key={item.id || item} className="flex-shrink-0 mx-2">
             <BodyPartCard
-              key={item.id || item}
               item={item}
               bodyPart={bodyPart}
               setBodyPart={setBodyPart}
             />
-          )}
-        </div>
-      ))}
-    </ScrollMenu>
+          </div>
+        ))}
+      </div>
+      <button 
+        className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow-md"
+        onClick={() => scroll('right')}
+        disabled={scrollPosition >= scrollContainerRef.current?.scrollWidth - scrollContainerRef.current?.clientWidth}
+      >
+        <img src={RightArrowIcon} alt="right-arrow" className="w-6 h-6" />
+      </button>
+    </div>
   );
 };
 
