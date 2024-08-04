@@ -6,6 +6,7 @@ import HorizontalScrollbar from "./HorizontalScrollbar";
 const SearchExercises = ({ bodyPart, setBodyPart, setExercises }) => {
   const [search, setSearch] = useState("");
   const [bodyParts, setBodyParts] = useState([]);
+  
   const handleSearch = async () => {
     if (search) {
       const fetchExerciseData = await fetchData(
@@ -59,13 +60,12 @@ const SearchExercises = ({ bodyPart, setBodyPart, setExercises }) => {
           Search
         </button>
       </div>
-     
+
       <HorizontalScrollbar
-          bodyPart={bodyPart}
-          setBodyPart={setBodyPart}
-          bodyParts={bodyParts}
-        />
-   
+        bodyPart={bodyPart}
+        setBodyPart={setBodyPart}
+        bodyParts={bodyParts}
+      />
     </section>
   );
 };
