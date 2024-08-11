@@ -22,9 +22,9 @@ const SearchExercises = ({ bodyPart, setBodyPart, setExercises }) => {
           item.bodyPart.toLowerCase().includes(search)
       );
 
-      // window.scrollTo({ top: 1800, left: 100, behavior: 'smooth' });
+      window.scrollTo({ top: 1800, left: 100, behavior: 'smooth' });
 
-      setSearch("https://exercisedb.p.rapidapi.com/exercises");
+      setSearch("");
       setExercises(searchedExercises);
     }
   };
@@ -43,8 +43,8 @@ const SearchExercises = ({ bodyPart, setBodyPart, setExercises }) => {
   }, []);
 
   return (
-    <section className="flex flex-col">
-      <h1 className="text-xl ">Search Exercises By Category</h1>
+    <section className="flex flex-col items-center justify-center space-y-4">
+      <h1 className="text-xl font-semibold">Search Exercises By Category</h1>
       <div className="flex gap-1">
         <input
           type="search"
