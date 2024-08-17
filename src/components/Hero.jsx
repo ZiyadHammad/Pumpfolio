@@ -9,7 +9,7 @@ const Hero = () => {
         </h1>
       </div>
       <div className="relative w-full h-[50vh] flex items-center justify-center">
-        <img src="./baki.png" alt="anime" className="object-contain" />
+        {/* <img src="./baki.png" alt="anime" className="object-contain" /> */}
       </div>
     </header>
   );

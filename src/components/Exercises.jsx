@@ -17,23 +17,23 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  // useEffect(() => {
-  //   const fetchExerciseData = async () => {
-  //     let exerciseData = []
+  useEffect(() => {
+    const fetchExerciseData = async () => {
+      let exerciseData = []
 
-  //     if (bodyPart === 'all') {
-  //       exerciseData = await fetchData('https://exercisedb.p.rapidapi.com/exercises?limit=100', exerciseOptions)
-  //     } else {
-  //       exerciseData = await fetchData(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`, exerciseOptions)
-  //     }
-  //     setExercises(exerciseData)
-  //   }
-  //   fetchExerciseData()
-  // }, [bodyPart])
+      if (bodyPart === 'all') {
+        exerciseData = await fetchData('https://exercisedb.p.rapidapi.com/exercises?limit=100', exerciseOptions)
+      } else {
+        exerciseData = await fetchData(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`, exerciseOptions)
+      }
+      setExercises(exerciseData)
+    }
+    fetchExerciseData()
+  }, [bodyPart])
 
   return (
-    <div id="exercises" className="mt-20 flex flex-col items-center justify-center">
-      <h1 className="text-2xl font-bold mb-6">Showing Results</h1>
+    <div id="exercises" className="flex flex-col px-4 py-8 border gap-4">
+      <h1 className="text-[26px] font-bold">Showing Results</h1>
       <div className="flex flex-wrap justify-center space-y-6">
         {currentExercises.map((exercise, index) => (
           <ExerciseCard
