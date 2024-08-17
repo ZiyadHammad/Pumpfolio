@@ -62,13 +62,12 @@ const SearchExercises = ({ bodyPart, setBodyPart, setExercises }) => {
         </button>
       </div>
 
-     
-        <HorizontalScrollbar
-          bodyPart={bodyPart}
-          setBodyPart={setBodyPart}
-          bodyParts={bodyParts}
-        />
-    
+      <HorizontalScrollbar
+        bodyPart={bodyPart}
+        setBodyPart={setBodyPart}
+        data={bodyParts}
+        bodyParts
+      />
     </section>
   );
 };
