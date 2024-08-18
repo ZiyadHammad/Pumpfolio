@@ -13,9 +13,11 @@ const ExerciseDetail = () => {
   const [youtubeVideos, setYoutubeVideos] = useState([]);
   const [targetMuscleExercises, setTargetMuscleExercises] = useState([]);
   const [equipmentExercises, setEquipmentExercises] = useState([]);
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     const fetchExercisesData = async () => {
+      setLoading(true)
       const exerciseDBUrl = "https://exercisedb.p.rapidapi.com";
       const searchYoutubeUrl =
         "https://youtube-search-and-download.p.rapidapi.com";
@@ -40,11 +42,22 @@ const ExerciseDetail = () => {
       setExerciseDetails(exerciseDetailData);
       setTargetMuscleExercises(similarTargetMuscleExercises);
       setEquipmentExercises(similarEquipmentExercises);
+      setLoading(false)
     };
     fetchExercisesData();
   }, [id]);
 
-  if(!exerciseDetails) return <Loader />
+  const handleExerciseClick = () => {
+    setLoading(true);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    setTimeout(() => {
+      setLoading(false);
+    }, 1500)
+  };
+
+
+  if(loading) return <Loader />
 
   return (
     <>
@@ -56,6 +69,7 @@ const ExerciseDetail = () => {
       <SimilarExercises
         targetMuscleExercises={targetMuscleExercises}
         equipmentExercises={equipmentExercises}
+        onItemClick={handleExerciseClick}
       />
     </>
   );

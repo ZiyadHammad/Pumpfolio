@@ -4,7 +4,7 @@ import ExerciseCard from './ExerciseCard';
 import RightArrowIcon from "../assets/icons/right-arrow.png";
 import LeftArrowIcon from "../assets/icons/left-arrow.png";
 
-const HorizontalScrollbar = ({ bodyPart, setBodyPart, data, bodyParts }) => {
+const HorizontalScrollbar = ({ bodyPart, setBodyPart, data, bodyParts, onItemClick }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const scrollContainerRef = useRef(null);
 
@@ -47,7 +47,8 @@ const HorizontalScrollbar = ({ bodyPart, setBodyPart, data, bodyParts }) => {
           <div 
             key={item.id || item} 
             className="flex-shrink-0 w-[calc(100%-8rem)] mx-16 flex justify-center items-center"
-            style={{ scrollSnapAlign: 'center' }} // Centering the snap alignment
+            style={{ scrollSnapAlign: 'center' }}
+            onClick={onItemClick}
           >
             {bodyParts ? 
               <BodyPart item={item} setBodyPart={setBodyPart} bodyPart={bodyPart} /> : 

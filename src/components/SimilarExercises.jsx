@@ -1,7 +1,8 @@
 import HorizontalScrollbar from "./HorizontalScrollbar";
 import Loader from "./Loader";
 
-const SimilarExercises = ({ targetMuscleExercises, equipmentExercises }) => {
+const SimilarExercises = ({ targetMuscleExercises, equipmentExercises, onItemClick }) => {
+
   return (
     <div className="bg-gray-100 py-8 px-4">
       <div className="max-w-4xl mx-auto">
@@ -9,25 +10,13 @@ const SimilarExercises = ({ targetMuscleExercises, equipmentExercises }) => {
           Similar <span className="text-red-600">Target Muscle</span> Exercises
         </h1>
         <div className="overflow-x-auto pb-4">
-          {targetMuscleExercises.length !== 0 ? (
-            <HorizontalScrollbar data={targetMuscleExercises} />
-          ) : (
-            <h1 className="text-xl font-semibold text-gray-800 text-center">
-              Error
-            </h1>
-          )}
+          <HorizontalScrollbar data={targetMuscleExercises} onItemClick={onItemClick}  />
         </div>
 
         <h1 className="text-2xl font-bold text-gray-800 mb-6 mt-8 text-center">
           Similar <span className="text-red-600">Equipment</span> Exercises
         </h1>
-        
-          {equipmentExercises.length !== 0 ? (
-            <HorizontalScrollbar data={equipmentExercises} />
-          ) : (
-            <Loader />
-          )}
-        
+        <HorizontalScrollbar data={equipmentExercises} onItemClick={onItemClick}  />
       </div>
     </div>
   );
