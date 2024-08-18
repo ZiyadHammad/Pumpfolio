@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import Hero from "../components/Hero";
+import Browse from '../components/Browse'
 import SearchExercises from "../components/SearchExercises";
 import Exercises from "../components/Exercises";
 
@@ -10,17 +10,17 @@ const Home = () => {
 
   return (
     <>
-      <Hero />
-      <SearchExercises
+      <Browse
         bodyPart={bodyPart}
         setBodyPart={setBodyPart}
         setExercises={setExercises}
       />
+      
       <Exercises
         exercises={exercises}
         setExercises={setExercises}
         bodyPart={bodyPart}
-      />
+      /> 
     </>
   );
 };

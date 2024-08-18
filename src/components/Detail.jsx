@@ -3,7 +3,8 @@ import targetImage from "../assets/icons/target.png";
 import equipmentImage from "../assets/icons/equipment.png";
 
 const Detail = ({ exerciseDetails }) => {
-  const { bodyPart, equipment, gifUrl, name, target, instructions } = exerciseDetails;
+  const { bodyPart, equipment, gifUrl, name, target, instructions } =
+    exerciseDetails;
 
   const extraDetails = [
     { icon: bodyPartImage, name: bodyPart, label: "Body Part" },
@@ -15,7 +16,14 @@ const Detail = ({ exerciseDetails }) => {
     <div className="bg-gray-100 min-h-screen p-4">
       <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden">
         <div className="p-4">
-          <h1 className="text-2xl font-bold text-gray-800 mb-4">{name}</h1>
+          <h1 className="text-2xl font-bold text-gray-800 mb-4">
+            {name?.split(" ")
+              .map(
+                (word) =>
+                  word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+              )
+              .join(" ")}
+          </h1>
           <img
             src={gifUrl}
             alt={name}

@@ -32,7 +32,7 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
   }, [bodyPart])
 
   return (
-    <div id="exercises" className="flex flex-col px-4 py-8 border gap-4">
+    <div id="exercises" className="flex flex-col px-4 py-8 gap-4">
       <h1 className="text-[26px] font-bold">Showing Results</h1>
       <div className="flex flex-wrap justify-center space-y-6">
         {currentExercises.map((exercise, index) => (

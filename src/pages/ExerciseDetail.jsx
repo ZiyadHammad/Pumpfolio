@@ -5,6 +5,7 @@ import { exerciseOptions, youtubeOptions, fetchData } from "../utils/fetchData";
 import Detail from "../components/Detail";
 import ExerciseVideos from "../components/ExerciseVideos";
 import SimilarExercises from "../components/SimilarExercises";
+import Loader from "../components/Loader";
 
 const ExerciseDetail = () => {
   const { id } = useParams();
@@ -40,12 +41,14 @@ const ExerciseDetail = () => {
       setTargetMuscleExercises(similarTargetMuscleExercises);
       setEquipmentExercises(similarEquipmentExercises);
     };
-    fetchExercisesData()
+    fetchExercisesData();
   }, [id]);
+
+  if(!exerciseDetails) return <Loader />
 
   return (
     <>
-      <Detail exerciseDetails={exerciseDetails} />
+      {/* <Detail exerciseDetails={exerciseDetails} />
       <ExerciseVideos
         youtubeVideos={youtubeVideos}
         name={exerciseDetails.name}
@@ -53,7 +56,7 @@ const ExerciseDetail = () => {
       <SimilarExercises
         targetMuscleExercises={targetMuscleExercises}
         equipmentExercises={equipmentExercises}
-      />
+      /> */}
     </>
   );
 };

@@ -14,9 +14,6 @@ export default {
         primary: "",
         secondary: "",
       },
-      backgroundImage: {
-        hero: 'url("./hero.png")',
-      },
       fontFamily: {
         roboto: ["Roboto Slab", "serif"],
       },

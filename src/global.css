@@ -5,9 +5,8 @@
 @tailwind utilities;
 
 :root {
-  background-color: #000;
+  background-color: #f7fafc;
   font-family: 'Roboto Slab', serif;
-  color-scheme: dark;
 }
 
 .red-gradient {
