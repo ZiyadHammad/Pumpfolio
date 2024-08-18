@@ -50,16 +50,16 @@ const Browse = ({ bodyPart, setBodyPart, setExercises }) => {
         onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
       />
 
-      <div className="w-full space-y-4">
-        {bodyParts.slice(0, 4).map((item) => (
-          <BodyPart
-            key={item}
-            item={item}
-            bodyPart={bodyPart}
-            setBodyPart={setBodyPart}
-          />
-        ))}
-      </div>
+<div className="grid grid-cols-2 gap-4">
+  {bodyParts.slice(1).map((item) => (
+    <BodyPart
+      key={item}
+      item={item}
+      bodyPart={bodyPart}
+      setBodyPart={setBodyPart}
+    />
+  ))}
+</div>
     </div>
   );
 };

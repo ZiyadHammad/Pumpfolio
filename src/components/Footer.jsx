@@ -10,9 +10,10 @@ const Footer = () => {
         <FontAwesomeIcon
           icon={faDumbbell}
           bounce
+          size="xl"
           style={{ color: "#23f207" }}
         />
-        <h2>pumpfolio.</h2>
+        <h2 className="text-black font-semibold text-xl">Pumpfolio.</h2>
       </Link>
     </footer>
   );

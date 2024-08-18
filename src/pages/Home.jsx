@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 import Browse from '../components/Browse'
-import SearchExercises from "../components/SearchExercises";
 import Exercises from "../components/Exercises";
 
 const Home = () => {

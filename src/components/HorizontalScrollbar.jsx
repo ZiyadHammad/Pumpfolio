@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import BodyPartCard from "./BodyPartCard";
+import BodyPart from "./BodyPart";
 import ExerciseCard from './ExerciseCard'
 import RightArrowIcon from "../assets/icons/right-arrow.png";
 import LeftArrowIcon from "../assets/icons/left-arrow.png";
@@ -50,7 +50,7 @@ const HorizontalScrollbar = ({ bodyPart, setBodyPart, data, bodyParts }) => {
             style={{ scrollSnapAlign: 'start' }}
           >
             {bodyParts ? 
-              <BodyPartCard item={item} setBodyPart={setBodyPart} bodyPart={bodyPart} /> : 
+              <BodyPart item={item} setBodyPart={setBodyPart} bodyPart={bodyPart} /> : 
               <ExerciseCard exercise={item} />
             }
           </div>

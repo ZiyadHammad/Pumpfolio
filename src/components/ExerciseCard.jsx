@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const ExerciseCard = ({ exercise }) => {
   return (
     <Link
-      to={`exercises/${exercise.id}`}
+      to={`/exercises/${exercise.id}`}
       className="w-[320px] h-[400px] bg-white border-t-4 border-[#FF2625] rounded-b-lg no-underline flex flex-col justify-evenly pb-[10px] transform scale-100 transition-all duration-300 ease-in-out"
     >
       <img
