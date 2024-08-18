@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar";
 
 const MainLayout = () => {
   return (
-    <div className="max-w-[1400px] mx-auto">
+    <div className="max-w-[390px] mx-auto">
       <Navbar />
       <div className="min-h-[80vh]" >
         <Outlet />
