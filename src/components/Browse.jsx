@@ -47,19 +47,19 @@ const Browse = ({ bodyPart, setBodyPart, setExercises }) => {
         placeholder="Search exercises..."
         className="w-full px-4 py-2 mb-6 text-black bg-gray-100 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-green-500"
         onChange={(e) => setSearch(e.target.value.toLowerCase())}
-        onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
+        onKeyPress={(e) => e.key === "Enter" && handleSearch()}
       />
 
-<div className="grid grid-cols-2 gap-4">
-  {bodyParts.slice(1).map((item) => (
-    <BodyPart
-      key={item}
-      item={item}
-      bodyPart={bodyPart}
-      setBodyPart={setBodyPart}
-    />
-  ))}
-</div>
+      <div className="grid grid-cols-2 gap-4">
+        {bodyParts.slice(1).map((item) => (
+          <BodyPart
+            key={item}
+            item={item}
+            bodyPart={bodyPart}
+            setBodyPart={setBodyPart}
+          />
+        ))}
+      </div>
     </div>
   );
 };

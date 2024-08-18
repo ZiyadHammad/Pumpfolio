@@ -21,13 +21,13 @@ const SimilarExercises = ({ targetMuscleExercises, equipmentExercises }) => {
         <h1 className="text-2xl font-bold text-gray-800 mb-6 mt-8 text-center">
           Similar <span className="text-red-600">Equipment</span> Exercises
         </h1>
-        <div className="overflow-x-auto pb-4">
+        
           {equipmentExercises.length !== 0 ? (
             <HorizontalScrollbar data={equipmentExercises} />
           ) : (
             <Loader />
           )}
-        </div>
+        
       </div>
     </div>
   );
