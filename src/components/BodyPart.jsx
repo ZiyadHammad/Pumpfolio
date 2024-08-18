@@ -2,16 +2,16 @@ import React from 'react';
 
 const BodyPart = ({ item, bodyPart, setBodyPart }) => {
   const iconMap = {
-    back: 'back.jpeg',
-    cardio: 'running.jpg',
-    chest: 'chest.jpg',
-    'lower arms': 'lower-arms.jpeg',
-    'lower legs': 'lower-legs.jpeg',
-    neck: 'neck.jpeg',
-    shoulders: 'shoulder.jpeg',
+    back: 'back.webp',
+    cardio: 'running.webp',
+    chest: 'chest.webp',
+    'lower arms': 'lower-arms.webp',
+    'lower legs': 'lower-legs.webp',
+    neck: 'neck.webp',
+    shoulders: 'shoulder.webp',
     'upper arms': 'bicep.webp',
     'upper legs': 'upper-legs.webp',
-    waist: 'abs.jpeg'
+    waist: 'abs.webp'
   };
 
   const descriptionMap = {
