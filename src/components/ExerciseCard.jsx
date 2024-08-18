@@ -2,25 +2,31 @@ import { Link } from "react-router-dom";
 
 const ExerciseCard = ({ exercise }) => {
   return (
-    <Link
-      to={`/exercises/${exercise.id}`}
-      className="w-[320px] h-[400px] bg-white border-t-4 border-[#FF2625] rounded-b-lg no-underline flex flex-col justify-evenly pb-[10px] transform scale-100 transition-all duration-300 ease-in-out"
+    <Link 
+      to={`/exercises/${exercise.id}`} 
+      className="w-full max-w-[320px] bg-white shadow-md rounded-lg overflow-hidden mb-4 transform transition-all duration-300 hover:shadow-lg"
     >
-      <img
-        src={exercise.gifUrl}
-        alt={exercise.name}
-        loading="lazy"
-        className="h-[280px] w-[350px]"
-      />
-      <div className="flex ml-4 space-x-4">
-        <button className="text-white bg-[#FCC757] p-1 text-sm rounded-md capitalize">
-          {exercise.bodyPart}
-        </button>
-        <button className="text-white bg-[#FCC757] p-1 text-sm rounded-md capitalize">
-          {exercise.target}
-        </button>
+      <div className="relative pb-[75%]">
+        <img 
+          src={exercise.gifUrl} 
+          alt={exercise.name} 
+          loading="lazy" 
+          className="absolute top-0 left-0 w-full h-full object-contain"
+        />
       </div>
-      <h2 className="ml-4 text-xl text-black capitalize">{exercise.name}</h2>
+      <div className="p-4">
+        <div className="flex flex-nowrap gap-2 mb-2">
+          <span className="text-xs font-semibold bg-blue-100 text-blue-800 px-2 py-1 rounded-full whitespace-nowrap">
+            {exercise.bodyPart}
+          </span>
+          <span className="text-xs font-semibold bg-green-100 text-green-800 px-2 py-1 rounded-full whitespace-nowrap">
+            {exercise.target}
+          </span>
+        </div>
+        <h2 className="text-lg font-semibold text-gray-800 capitalize truncate">
+          {exercise.name}
+        </h2>
+      </div>
     </Link>
   );
 };

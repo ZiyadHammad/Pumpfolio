@@ -19,7 +19,7 @@ const ExerciseVideos = ({ youtubeVideos, name }) => {
               )
               .join(" ")}
           </span>{" "}
-          exercise videos
+          Exercise Videos
         </h1>
 
         <div className="overflow-x-auto pb-4">

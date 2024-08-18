@@ -27,7 +27,7 @@ const Detail = ({ exerciseDetails }) => {
           <img
             src={gifUrl}
             alt={name}
-            className="w-full h-64 object-cover rounded-lg mb-4"
+            className="w-full h-68 object-contain rounded-lg mb-4"
           />
 
           <div className="flex justify-between mb-6">
