@@ -53,7 +53,7 @@ const ExerciseDetail = () => {
 
     setTimeout(() => {
       setLoading(false);
-    }, 1500)
+    }, 500)
   };
 
 

@@ -1,17 +1,16 @@
 import { useEffect, useState } from "react";
 import { exerciseOptions, fetchData } from "../utils/fetchData";
-
 import BodyPart from "./BodyPart";
-import Loader from './Loader'
+import Loader from "./Loader";
 
 const Browse = ({ bodyPart, setBodyPart, setExercises }) => {
   const [search, setSearch] = useState("");
   const [bodyParts, setBodyParts] = useState([]);
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   const handleSearch = async () => {
     if (search) {
-      setLoading(true)
+      setLoading(true);
       const fetchExerciseData = await fetchData(
         "https://exercisedb.p.rapidapi.com/exercises?limit=1000",
         exerciseOptions
@@ -27,8 +26,8 @@ const Browse = ({ bodyPart, setBodyPart, setExercises }) => {
 
       setSearch("");
       setExercises(searchedExercises);
-      setLoading(false)
-      window.scrollTo({ top: 650, left: 100, behavior: "smooth" })
+      setLoading(false);
+      window.scrollTo({ top: 650, left: 100, behavior: "smooth" });
     }
   };
 
@@ -45,7 +44,7 @@ const Browse = ({ bodyPart, setBodyPart, setExercises }) => {
     fetchBodyParts();
   }, []);
 
-  if(loading) return <Loader />
+  if (loading) return <Loader />;
 
   return (
     <div className="flex flex-col items-center w-full max-w-md mx-auto px-4 py-8">

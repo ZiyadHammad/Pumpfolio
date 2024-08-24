@@ -1,8 +1,9 @@
 import HorizontalScrollbar from "./HorizontalScrollbar";
-import Loader from "./Loader";
 
 const SimilarExercises = ({ targetMuscleExercises, equipmentExercises, onItemClick }) => {
 
+  targetMuscleExercises.sort(() => Math.random() - 0.5)
+  equipmentExercises.sort(() => Math.random() - 0.5)
   return (
     <div className="bg-gray-100 py-8 px-4">
       <div className="max-w-4xl mx-auto">
